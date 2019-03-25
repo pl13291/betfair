@@ -18,7 +18,7 @@ trading = betfairlightweight.APIClient(username)
 trading.login()
 
 # update
-event_ids = [28369618]
+event_ids = [29191404]
 
 # score request (provide list / returns list)
 scores = trading.in_play_service.get_scores(

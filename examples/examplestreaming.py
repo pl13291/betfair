@@ -8,7 +8,6 @@ from betfairlightweight.filters import (
     streaming_market_data_filter,
 )
 
-
 # setup logging
 logging.basicConfig(level=logging.INFO)  # change to DEBUG to see log all updates
 
@@ -32,14 +31,9 @@ stream = trading.streaming.create_stream(
 
 # create filters (GB WIN racing)
 market_filter = streaming_market_filter(
-    event_type_ids=['7'],
-    country_codes=['GB'],
-    market_types=['WIN'],
+    market_ids=['156436827']
 )
-market_data_filter = streaming_market_data_filter(
-    fields=['EX_BEST_OFFERS', 'EX_MARKET_DEF'],
-    ladder_levels=3,
-)
+market_data_filter = streaming_market_data_filter()
 
 # subscribe
 streaming_unique_id = stream.subscribe_to_markets(

@@ -1,11 +1,10 @@
 import betfairlightweight
 from betfairlightweight import filters
-
+import os
 
 # create trading instance
-trading = betfairlightweight.APIClient('username', 'password', app_key='appKey')
-
-# login
+username = os.environ.get('username')
+trading = betfairlightweight.APIClient(username)
 trading.login()
 
 # make event type request to find horse racing event type

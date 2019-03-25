@@ -3,6 +3,7 @@ import logging
 import betfairlightweight
 from betfairlightweight import StreamListener
 from betfairlightweight.streaming.stream import MarketStream
+import os
 
 """
 Data needs to be downloaded from:
@@ -12,8 +13,10 @@ Data needs to be downloaded from:
 # setup logging
 logging.basicConfig(level=logging.INFO)
 
-# create trading instance (no need to put in correct details)
-trading = betfairlightweight.APIClient('username', 'password')
+# create trading instance
+username = os.environ.get('username')
+trading = betfairlightweight.APIClient(username)
+trading.login()
 
 
 class HistoricalStream(MarketStream):
